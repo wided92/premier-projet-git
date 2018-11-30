@@ -1,0 +1,87 @@
+<!--  create project  -->
+      <record id="project_view_form_simplified" model="ir.ui.view">
+            <field name="name">project.view.form.simplified_custom</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+            <field name="arch" type="xml">
+                <sheet position="replace">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,selection,definition,development,implementation,launched,classed"/>
+                    </header>
+                    <sheet>
+                        <div style="border: 1px solid black;border-spacing:0px;padding:5%;border-color:black;table-layout: auto;width:100%:height:100%;border-collapse: collapse;">
+
+                        <group>
+                            <group>
+                                <field name="name" string="Project Name" placeholder="e.g. Office Party" colspan="2"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="tag_ids" widget="many2many_tags" string="Idea :"
+                                   options="{'color_field': 'color', 'no_create_edit': False}" required="1"/>
+                            </group>
+                            <group>
+                                <field name="priority" required="1" string="Priority :"/>
+                                <field name="user_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <table class="table table-bordered">
+                                  <tr><th>Business Unit</th><th>Category</th><th>Idea Evaluation</th></tr>
+                                  <tr>
+                                      <td class="text-left">
+                                          <field name="sopaco"/><label for="sopaco" class="oe_inline"/><br/>
+                                          <field name="gepaco"/><label for="gepaco" class="oe_inline"/><br/>
+                                          <field name="pbf"/><label for="pbf" class="oe_inline"/><br/>
+                                          <field name="ift"/><label for="ift" class="oe_inline"/><br/>
+                                          <field name="giga"/><label for="giga" class="oe_inline"/>
+                                      </td>
+                                      <td>
+                                          <field name="banchmark"/><label for="banchmark" class="oe_inline"/><br/>
+                                          <field name="concurrence"/><label for="concurrence" class="oe_inline"/><br/>
+                                          <field name="industrial"/><label for="industrial" class="oe_inline"/><br/>
+                                          <field name="quality"/><label for="quality" class="oe_inline"/><br/>
+                                      </td>
+                                      <td>
+                                          <field name="accessibility"/><label for="accessibility" class="oe_inline"/><br/>
+                                          <field name="attractiveness"/><label for="attractiveness" class="oe_inline"/><br/>
+                                      </td>
+                                  </tr>
+                            </table>
+                        </group>
+                        <br/>
+                        <group>
+                            <group><field name="type" widget="radio"/></group>
+                            <group>
+                                <table class="table table-bordered">
+                                      <tr>
+                                          <th colspan="2">Function</th>
+                                      </tr>
+                                      <tr>
+                                          <td class="text-left">
+                                              <field name="production"/><label for="production" class="oe_inline"/><br/>
+                                              <field name="marketing"/><label for="marketing" class="oe_inline"/><br/>
+                                              <field name="development"/><label for="development" class="oe_inline"/><br/>
+                                              <field name="commercial"/><label for="commercial" class="oe_inline"/><br/>
+                                              <field name="purchase"/><label for="purchase" class="oe_inline"/><br/>
+                                          </td>
+                                          <td>
+                                              <field name="technical"/><label for="technical" class="oe_inline"/><br/>
+                                              <field name="manufacture"/><label for="manufacture" class="oe_inline"/><br/>
+                                              <field name="dg"/><label for="dg" class="oe_inline"/><br/>
+                                          </td>
+                                      </tr>
+                                </table>
+                            </group>
+                        </group>
+                        <footer>
+                            <button string="Create" name="close_dialog" type="object" class="btn-primary"/>
+                            <button string="Create &amp; Edit" name="edit_dialog" type="object" class="btn-primary"/>
+                            <button string="Discard" class="btn-default" special="cancel"/>
+                        </footer>
+                        </div>
+                    </sheet>
+                </sheet>
+            </field>
+      </record>
